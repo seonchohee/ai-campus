@@ -18,7 +18,6 @@ if ~ elif ~ else를 사용하여 할인율을 결정하세요.
 """
 
 
-
 #입력
 birth=int(input("출생년도:"))
 
