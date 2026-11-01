@@ -38,6 +38,8 @@ N개를 연속으로 맞추면 10 x N콤보에 해당하는 점수를 획득
 import random
 correct = 0
 wrong = 0
+score = 0
+combo = 0
 for i in range(10):
 
     number1 = random.randint(2, 9)
@@ -50,12 +52,20 @@ for i in range(10):
 
     if user == answer:
         correct += 1
+        combo += 1
+        score += 10 * combo
     else:
         wrong += 1
+        combo = 0
 
-print("정답", correct,"개")
-print("오답", wrong,"개")
+        if score >= 5:
+            score -= 5
+        else:
+            score = 0
 
+print(f"정답: {correct} 개")
+print(f"오답: {wrong} 개")
+print(f"최종 점수: {score} 점")
 
 
 
