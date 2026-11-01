@@ -22,7 +22,7 @@
 total = 0
 coin = 1
 
-days = int(input("기간을 입력하세요: "))
+days = int(input("기간을 입력하세요:" ))
 
 for i in range (1,days+1):
 

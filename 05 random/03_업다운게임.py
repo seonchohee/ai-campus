@@ -34,12 +34,31 @@ HINT
 마지막 프로그램이 종료될 때 정답을 맞추고 끝났는지, 정답을 못 맞추고 끝났는지 알아내려면 무엇을 추가해야 할까요?
 
 """
+
 import random
-
-up=0
-down=0
-
+answer = random.randint(1,1000)
+correct = False
+#print(answer)
 for i in range(10):
+    user = int(input("정답을 입력하시오:"))
+
+    if answer > user:
+        print("업!")
+    elif answer < user:
+        print("다운!")
+    else:
+        print("정답!")
+        correct = True
+        break
+
+if correct == False:
+    print("오답 입니다.")
+
+print("게임 종료")
+
+
+
+
 
 
 
