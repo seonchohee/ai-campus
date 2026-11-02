@@ -52,25 +52,25 @@ print("평균:", average)
 """
 #강사님 풀이
 
-prices =["95","92","100","105","130"]
-prices =[95,92,100,105,130]
-prices =[950000,920000,1000000,1050000,1300000]
+# graphic_cards = ["95만원", "92만원", "100만원", "105만원", "130만원"]
+# graphic_cards = [95, 92, 100, 105, 130]
+graphic_cards = [950000, 920000, 1000000, 1050000, 1300000]
+#               +-------+------+--------+--------+--------+
+#               +0     +1      +2      +3       +4
 
-#for i in range(5):
-#print(graphic_card[i])
+# for i in range(5):
+#     print(graphic_cards[i])
 
-for graphic_card in graphic_card:
+# 출력만
+for graphic_card in graphic_cards:
     print(graphic_card)
 
-
 # 합계만
-   
 total = 0
-for graphic_card in graphic_card:
+for graphic_card in graphic_cards:
     total += graphic_card
 average = total / 5
 print(average)
-
 
 """
 
