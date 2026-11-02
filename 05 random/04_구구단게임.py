@@ -35,6 +35,37 @@ N개를 연속으로 맞추면 10 x N콤보에 해당하는 점수를 획득
 이렇게 계산된 최종 점수를 결과 화면에 같이 출력
 """
 
+import random
+correct = 0
+wrong = 0
+score = 0
+combo = 0
+for i in range(10):
+
+    number1 = random.randint(2, 9)
+    number2 = random.randint(1, 9)
+    print(number1,"x",number2,"=")
+
+    answer = number1 * number2
+
+    user = int(input("정답 입력: "))
+
+    if user == answer:
+        correct += 1
+        combo += 1
+        score += 10 * combo
+    else:
+        wrong += 1
+        combo = 0
+
+        if score >= 5:
+            score -= 5
+        else:
+            score = 0
+
+print(f"정답: {correct} 개")
+print(f"오답: {wrong} 개")
+print(f"최종 점수: {score} 점")
 
 
 
