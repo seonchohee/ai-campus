@@ -12,5 +12,5 @@ for i in range(5): #5번
 
 print(scores)
 
-# list의 길이를 확인
+# list의 길이를 확인(데이터가 몇개 들어가있는지)
 print(len(scores))
