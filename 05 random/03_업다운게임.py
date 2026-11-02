@@ -58,7 +58,33 @@ print("게임 종료")
 
 
 
+"""
+강사님풀이
 
+import random # 랜덤 모듈을 준비해줘!
+
+# 정답 생성 (한 번만)
+print("컴퓨터가 1~1000 사이의 범위에서 정답을 생성하고 있습니다")
+com = random.randint(1, 1000)
+# com = random.randrange(1, 1001)
+print("정답 생성이 완료되었습니다")
+print("정답 : ", com)
+
+for i in range(10): # 10번
+    # 사용자 입력 (반복적으로)
+    user = int(input("정답 입력 : "))
+
+    # 판정 및 출력
+    if com > user :
+        print("업(UP)")
+    elif com < user :
+        print("다운(DOWN)")
+    else :
+        print("정답")
+        break # 탈출 키워드
+
+print("프로그램을 종료합니다")
+"""
 
 
 

@@ -63,13 +63,14 @@ for i in range(10):
         else:
             score = 0
 
+print("게임을 종료합니다.")
 print(f"정답: {correct} 개")
 print(f"오답: {wrong} 개")
 print(f"최종 점수: {score} 점")
 
 
 
-
-
+#score = max(0,score-5)           맥스
+#combo=실패하면 0 맞추면 증가
 
 
