@@ -16,6 +16,7 @@ number = 0
 while True:
     number = int(input("숫자 입력 : "))
 
+
     if number < 0:
         continue
 
@@ -30,3 +31,16 @@ average = total / count
 
 print(f"합계 = {total} ")
 print(f"평균 : {average}")
+
+
+
+"""
+만약 그냥 헛 입력갚 (엔터를 제거 하고싶다면)
+
+    text = input("숫자 입력 : ")
+    if text == "":
+        continue
+
+    number = int(text)
+    
+"""
