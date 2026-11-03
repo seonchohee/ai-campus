@@ -23,9 +23,12 @@
 """
 
 def print_receipt() :
+    print("<구매 영수증>")
+    print("-----------------------")
     price = int(input("상품의 가격: "))
     payment = int(input("지불 금액:"))
     change = (payment - price)
+    print("-----------------------")
     print("거스름돈 :", change)
 
     count_50000 = change//50000
@@ -47,11 +50,23 @@ def print_receipt() :
 
     if count_50000 > 0:
         print("+-- 50000원짜리", count_50000, "장")
-    if count_50000 > 0:
-        print("+-- 50000원짜리", count_50000, "장")
+    if count_10000 > 0:
+        print("+-- 10000원짜리", count_10000, "장")
+    if count_5000 > 0:
+        print("+-- 5000원짜리", count_5000, "장")
+    if count_1000 > 0:
+        print("+-- 1000원짜리", count_1000, "장")
+    if count_500 > 0:
+        print("+-- 500원짜리", count_500, "개")
+    if count_100 > 0:
+        print("+-- 100원짜리", count_100, "개")
+    if count_50 > 0:
+        print("+-- 50원짜리", count_50, "개")
+    if count_10 > 0:
+        print("+-- 10원짜리", count_10, "개")
 
 
-
+print_receipt()
 
 
 
