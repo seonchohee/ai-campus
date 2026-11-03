@@ -1,59 +1,63 @@
 """
+# 실습 문제 : 경품 당첨 프로그램
 
+참가자의 이름을 리스트에 입력받은 뒤 1, 2, 3등 당첨인원 수를 설정하면 각각의 등수에 대한 당첨인원이 화면에 출력되도록 구현하는 프로그램을 만들고 싶습니다.
 
-일주일 동안 사용한 용돈을 입력해서 분석하는 프로그램을 구현하려고 합니다.
+```
+총 인원수 입력 : 6
+이름 입력 : 민수
+이름 입력 : 지수
+이름 입력 : 지혜
+이름 입력 : 철수
+이름 입력 : 지후
+이름 입력 : 연아
 
-먼저 총 용돈을 입력합니다.
-그리고 요일별(월,화,수,목,금,토,일)로 일주일간 사용한 용돈을 입력합니다
-잔액을 출력해보세요
-하루 평균보다 많이 사용한 날의 금액만 출력해보세요
-전체 용돈 사용내역을 출력하면서 4번에 해당하는 금액 옆에 (과소비)를 붙여서 출력하세요
-월요일에 사용한 용돈은 이번주 중 몇 번째로 많은 금액인지 계산해서 출력하세요
+1등 수 입력 : 1
+2등 수 입력 : 1
+3등 수 입력 : 2
 
+<당첨 결과>
+1등 : [지후]
+2등 : [지혜]
+3등 : [연아, 철수]
+미당첨 : [민수, 지수]
+```
 """
 
-# 1.
-pocket = int(input("총 용돈 입력 : "))
 
-# 2.
-daily = []
+names = []
 
-for i in range(7):
-    money = int(input("일 금액 입력 : "))
-    daily.append(money)
+for i in range(10):
+    name = input("이름 입력 : ")
+    names.append(name)
 
-# 3. 잔액을 출력하려면 daily의 합계가 필요
-daily_total = 0
-for money in daily:
-    daily_total += money
-# print(daily_total)
-# print(sum(daily)) # list의 합계를 구해주는 명령
-balance = pocket - daily_total # sum(daily)로도 가능
-print("잔액", balance)
+# 1, 2, 3등을 모두 추첨
+import random
+first = []
+second = []
+third = []
 
-# 4. 평균 = 합계 / 개수 , 개수는 지금 7개이지만 len() 사용 권장
-daily_average = daily_total / len(daily)
-print("일평균", daily_average)
+# 인원수를 입력받도록 변경
+first_size = int(input("1등 수 : "))
+second_size = int(input("2등 수 : "))
+third_size = int(input("3등 수 : "))
 
-# 평균 이상인 금액만 출력
-print("<평균보다 초과 지출한 경우>")
-for money in daily:
-    if money > daily_average:
-        print("금액", money)
+for i in range(first_size): # 1등 추첨
+    select = random.choice(names)
+    names.remove(select)
+    first.append(select)
 
-# 5
-print("<전체 지출 내역>")
-for money in daily:
-    if money > daily_average:
-        print("금액", money, "(과소비)")
-    else:
-        print("금액", money)
+for i in range(second_size): # 2등 추첨
+    select = random.choice(names)
+    names.remove(select)
+    second.append(select)
 
-# 6
-rank = 1                    #최초 랭크를 1로 가정
-target = daily[0]           #비교할 점수를 보관
-for money in daily:         #모든 금액을 비교하며
-    if money > target:      #더 큰 금액을 발견하면
-        rank += 1           #등수를 1 증가 (뒤로 밀어내기)
+for i in range(third_size): # 3등 추첨
+    select = random.choice(names)
+    names.remove(select)
+    third.append(select)
 
-print(f"월요일에 사용한 금액은 이번 주 중에서 {rank}등으로 많습니다")
+print(f"1등 당첨자 : {first}")
+print(f"2등 당첨자 : {second}")
+print(f"3등 당첨자 : {third}")
+print(f"미당첨자 : {names}")
