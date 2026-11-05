@@ -17,16 +17,44 @@
 
 import re
 
-date = input("생년월일을 입력하세요: ")
-result = date.split("-")
-year = int(result[0])
 
-print(result)
+try:
+    birth = input("생년월일 입력 (YYYY-MM-DD): ")
 
-current_year = 2026
-age = current_year - year
-korean_age = age + 1
+    regexp = r"^(19|20)[0-9]{2}-((01|03|05|07|08|10|12)-(0[1-9]|[12][0-9]|3[01])|(04|06|09|11)-(0[1-9]|[12][0-9]|30)|02-(0[1-9]|[12][0-9]))$"
 
-month = int(result[1])
-current_month = 11
+    check = re.fullmatch(regexp, birth)
 
+    if check is None:
+        raise ValueError
+
+    result = birth.split("-")
+
+    year = int(result[0])
+    month = int(result[1])
+
+
+    current_year = 2026
+    current_month = 11
+
+
+    if year > current_year:
+        raise ValueError
+
+    if year == current_year and month > current_month:
+        raise ValueError
+
+
+    korean_age = current_year - year + 1
+    global_age = current_year - year
+
+    if month > current_month:
+        global_age -= 1
+
+
+
+    print("한국 나이:", korean_age)
+    print("만 나이:", global_age)
+
+except Exception:
+    print("잘못된 생년월일입니다.")
